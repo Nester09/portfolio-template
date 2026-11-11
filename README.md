@@ -1,6 +1,6 @@
 # Portfolio Template
 
-A clean, free portfolio website template. Fill in your details in **one file**, upload to GitHub, and you have a portfolio online.
+A clean, free portfolio website template with a storytelling-style layout. Add your own details, projects and experience in just in **one main configuration file**, then publish your portfolio on GitHub Pages and you have a portfolio online.
 
 Built with plain **HTML, CSS and JavaScript** plus Bootstrap 5. No frameworks, no build step, no database, no Node.js required.
 
@@ -11,7 +11,7 @@ Built with plain **HTML, CSS and JavaScript** plus Bootstrap 5. No frameworks, n
 - Fixed navbar that highlights the section you are reading and collapses on mobile
 - Hero, About (with education card and skills), Projects, Resume timeline and Contact sections
 - Fully responsive: desktop, tablet and phone
-- Every section is optional. Leave it empty and it disappears, including its menu link
+- About, Projects and Resume sections can be hidden when not needed, along with their menu links
 - Works without images: coloured placeholders and your initials are shown until you add your own
 
 ---
@@ -20,7 +20,7 @@ Built with plain **HTML, CSS and JavaScript** plus Bootstrap 5. No frameworks, n
 
 | File or folder  | What to do                                                                        |
 | --------------- | --------------------------------------------------------------------------------- |
-| `js/config.js`  | **Edit.** Your name, text, skills, projects, links: everything lives here.        |
+| `js/config.js`  | **Edit.** Your name, text, skills, projects, links: Most content lives here.      |
 | `images/`       | **Add** your profile photo and project screenshots.                               |
 | `assets/`       | **Add** your CV as a PDF (optional).                                              |
 | `index.html`    | **Edit two lines only:** the `<title>` and the `description` near the top.        |
@@ -38,8 +38,9 @@ Built with plain **HTML, CSS and JavaScript** plus Bootstrap 5. No frameworks, n
 
 1. **Get your own copy.** At the top of this repository click the green **Use this template** button, then **Create a new repository**. (Or click **Code → Download ZIP** and unzip it.)
 2. **Open `js/config.js`** in any editor (VS Code, Notepad, anything).
-3. **Replace the sample text with yours.** Every field is explained in the comments inside the file.
-4. **Open `index.html` in your browser** to preview. Refresh after every change.
+3. **Replace the sample content with yours.** The comments inside the file explain the available fields and how to customize them.
+4. **Update the page title and description** in both `js/config.js` and `index.html`.
+5. **Open `index.html` in your browser** to preview. Refresh after every change.
 
 > The page loads Bootstrap and fonts from the internet, so you need to be online while previewing.
 
@@ -61,10 +62,10 @@ File names are case sensitive once online: `Profile.jpg` and `profile.jpg` are d
 ## Adding, removing and hiding things
 
 - **Add a project:** copy one `{ ... }` project block in `projects.items`, paste it below with a comma, and edit it.
-- **Hide a button:** leave its `url` empty (`""`).
+- **Hide a project or social link:** leave its `url` empty (`""`). To hide a *Home button*, leave its label empty.
 - **Hide a whole section:** set `about.show` to `false`, or set `projects.items` / `resume.items` to `[]`.
 - **Hide skills:** set `skills.groups` to `[]`.
-- **Coloured italic words:** wrap them in `<em>…</em>` inside any headline, and use `<br>` for a line break.
+- **Text styling:** In supported headline and title fields in `js/config.js`, use `<em>your words</em>` for coloured italics and `<br>` to start a new line. Replace the words inside `<em>` with your own. These styles are optional.
 
 Project icons and social icons use [Bootstrap Icons](https://icons.getbootstrap.com). Search the name there (for example `bi-github`) and paste it into `icon`.
 
@@ -127,7 +128,7 @@ portfolio-template/
 
 **My image does not show.** Check the file name and capitals match exactly, and that the file is inside `images/`.
 
-**A button is missing.** Buttons only appear when their `url` is filled in.
+**A button or link is missing.** Check that its label and destination are filled in. Project and social links need a `url`, the Home buttons need a label and a valid section target, and the CV download button needs `resume.cvFile`.
 
 **My email address is public.** Anything in `config.js` is visible to everyone who visits the site. If you do not want a public email or phone number, leave them empty and use the social links instead.
 

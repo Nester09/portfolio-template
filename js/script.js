@@ -37,7 +37,7 @@ function linkAttrs(url) {
   return /^https?:/i.test(url) ? ' target="_blank" rel="noopener"' : "";
 }
 
-function sectionIntro(number, eyebrow, title, kicker, light) {
+function sectionIntro(number, eyebrow, title, kicker, light, titleId) {
   const lightEyebrow = light ? " eyebrow-light" : "";
   const lightTitle = light ? " title-light" : "";
   const lightKicker = light ? " kicker-light" : "";
@@ -45,7 +45,7 @@ function sectionIntro(number, eyebrow, title, kicker, light) {
     <div class="section-intro row align-items-end gy-3">
       <div class="col-md-7">
         <p class="eyebrow${lightEyebrow}"><span class="eyebrow-line"></span> ${number} / ${esc(eyebrow)}</p>
-        <h2 class="section-title${lightTitle}">${title}</h2>
+        <h2 id="${titleId}" class="section-title${lightTitle}">${title}</h2>
       </div>
       <div class="col-md-5">
         <p class="section-kicker${lightKicker}">${esc(kicker)}</p>
@@ -159,7 +159,7 @@ function renderAbout() {
   return `
     <section id="about" class="section section-anchor section-paper" aria-labelledby="about-title">
       <div class="container">
-        ${sectionIntro(nextNumber(), a.eyebrow, a.title, a.kicker, false)}
+        ${sectionIntro(nextNumber(), a.eyebrow, a.title, a.kicker, false, "about-title")}
         <div class="row about-layout align-items-center gy-5">
           <div class="col-lg-5">
             <div class="portrait-frame" data-image-frame>
@@ -243,7 +243,7 @@ function renderProjects() {
   return `
     <section id="projects" class="section section-anchor section-ink" aria-labelledby="projects-title">
       <div class="container">
-        ${sectionIntro(nextNumber(), pr.eyebrow, pr.title, pr.kicker, true)}
+        ${sectionIntro(nextNumber(), pr.eyebrow, pr.title, pr.kicker, true, "projects-title")}
         <div class="projects-list">
           ${featuredHtml}
           ${others.length ? `<div class="row g-4">${othersHtml}</div>` : ""}
@@ -283,7 +283,7 @@ function renderResume() {
         <div class="section-intro row align-items-end gy-3">
           <div class="col-md-7">
             <p class="eyebrow"><span class="eyebrow-line"></span> ${number} / ${esc(r.eyebrow)}</p>
-            <h2 class="section-title">${r.title}</h2>
+            <h2 id="resume-title" class="section-title">${r.title}</h2>
           </div>
           <div class="col-md-5 resume-action">
             <p class="section-kicker">${esc(r.kicker)}</p>
